@@ -8,7 +8,6 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",

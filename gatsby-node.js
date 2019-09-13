@@ -18,11 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
               websiteUrl
               slug
               content {
-                id
                 content
-                childContentfulRichText {
-                  html
-                }
               }
               headerImage {
                 fluid {

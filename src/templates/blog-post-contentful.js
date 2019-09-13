@@ -6,6 +6,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 class BlogPostContentfulTemplate extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class BlogPostContentfulTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    console.log(post)
+    // console.log(post.content.content)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -42,7 +43,8 @@ class BlogPostContentfulTemplate extends React.Component {
             </p>
           </header>
           <Img fluid={post.headerImage.fluid} />
-          <section dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} />
+          {/* <section dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} /> */}
+          {documentToReactComponents(JSON.parse(post.content.content))}
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -100,9 +102,7 @@ export const pageQuery = graphql`
       subtitle
       date
       content {
-        childContentfulRichText {
-          html
-        }
+        content
       }
       headerImage {
         fluid {
