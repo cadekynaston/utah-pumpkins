@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Header } from "../components/header"
 
-class Index extends React.Component {
+class BlogPage extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -17,7 +17,8 @@ class Index extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <Header>
-          <h1>Welcome to Utah Pumpkins!
+          <h1>
+            BLOG PAGE
           </h1>
         </Header>
         <SEO title="All posts" />
@@ -45,7 +46,7 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default BlogPage
 export const pageQuery = graphql`
   query {
     site {
