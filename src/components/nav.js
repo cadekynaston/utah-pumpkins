@@ -2,10 +2,10 @@ import React from 'react'
 import styled from '@emotion/styled';
 import { Link } from "gatsby"
 
-import { Section, Constraint } from '../styles'
+import { Section, Constraint, theme } from '../styles'
 import gatsbyIcon from '../images/gatsby-icon.png'
 
-export const Nav = () => {
+export const Nav = props => {
   return (
     <nav>
       <Section>
@@ -18,21 +18,18 @@ export const Nav = () => {
           </Link>
           <NavItems>
             <NavItem>
-              <Link
-                style={{ boxShadow: `none` }}
-                to='/gallery'>Gallery
+              <Link to='/gallery'>
+                Gallery
               </Link>
             </NavItem>
             <NavItem>
-              <Link
-                style={{ boxShadow: `none` }}
-                to='/blog'>Blog
+              <Link to='/blog'>
+                Blog
               </Link>
             </NavItem>
             <NavItem>
-              <Link
-                style={{ boxShadow: `none` }}
-                to='/contact'>Contact
+              <Link to='/contact'>
+                Contact
               </Link>
             </NavItem>
           </NavItems>
@@ -65,4 +62,8 @@ const NavItems = styled.ul`
 const NavItem = styled.li`
   margin-bottom: 0;
   margin-left: 20px;
+
+  a {
+    font-size: 20px;
+  }
 `

@@ -25,16 +25,15 @@ const GalleryPage = props => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts" />
       <Header>
-        <h1>
-          Check out our gallery if you need some inspiration for your own pumpkin carving fun!
-        </h1>
+        <h1>Pumpkin Carving Ideas!</h1>
+        <h4>If you need a little pumpkin carving inspiration you've come to the right place.</h4>
       </Header>
       <Container>
         <h2>check out images by year:</h2>
         <YearLinks>
           {[...imageYears].map(year =>
-            <Link to={`/gallery/${year}`} >
-              <YearLink>{year}</YearLink>
+            <Link to={`/gallery/${year}`} key={year} >
+              <button className="margin-right-15">{year}</button>
             </Link>)
           }
         </YearLinks>
@@ -90,13 +89,4 @@ const YearLinks = styled.div`
   margin-top: 20px;
   margin-bottom: 50px;
 
-`
-
-const YearLink = styled.p`
-  padding: 30px 40px;
-  font-size: 30px;
-  border: 1px solid ${theme.colors.purple};
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-bottom: 10px;
 `

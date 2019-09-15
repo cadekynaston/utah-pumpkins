@@ -2,12 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import Bio from "../components/bio"
+import { Section, Constraint } from "../styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 class BlogPostContentfulTemplate extends React.Component {
+
   render() {
     const post = this.props.data.contentfulBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -19,7 +20,9 @@ class BlogPostContentfulTemplate extends React.Component {
           title={post.title}
           description={post.subtitle}
         />
-        <article>
+        <Section>
+          <Constraint>
+          <article>
           <header>
             <h1
             >
@@ -33,10 +36,8 @@ class BlogPostContentfulTemplate extends React.Component {
           </header>
           <Img fluid={post.headerImage.fluid} />
           {documentToReactComponents(JSON.parse(post.content.content))}
-          <hr
-          />
+          <hr />
           <footer>
-            <Bio />
           </footer>
         </article>
 
@@ -66,6 +67,9 @@ class BlogPostContentfulTemplate extends React.Component {
             </li>
           </ul>
         </nav>
+          </Constraint>
+        </Section>
+
       </Layout>
     )
   }

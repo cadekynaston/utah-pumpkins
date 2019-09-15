@@ -17,16 +17,24 @@ export const GlobalStyles = () =>
         font-family: ${theme.fonts.lacquer};
       }
 
-      h1 {
-        font-size: 70px;
-        line-height: 72px;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
 
-        margin-bottom: 30px;
+      h1 {
+        font-size: 62px;
+        line-height: 64px;
+        margin-bottom: 20px;
         text-align: left;
         font-weight: 600;
         font-family: ${theme.fonts.lacquer};
-        color: ${theme.colors.purple};
-
+        color: ${theme.colors.light};
 
         ${media.medium} {
           font-size: 54px;
@@ -45,7 +53,7 @@ export const GlobalStyles = () =>
         margin-bottom: 15px;
         text-align: left;
         font-weight: 600;
-
+        color: ${theme.colors.gray};
 
         ${media.medium} {
           font-size: 42px;
@@ -85,8 +93,8 @@ export const GlobalStyles = () =>
       h4 {
         font-size: 24px;
         line-height: 28px;
-
         font-weight: 400;
+        color: ${theme.colors.gray};
 
         &.heavy {
           font-weight: 700;
@@ -114,20 +122,16 @@ export const GlobalStyles = () =>
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         position: relative;
+        background-color: ${theme.colors.dark};
+        color: ${theme.colors.gray};
+      }
+
+      main {
+        flex: 1 0 auto;
       }
 
       * {
         box-sizing: border-box;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        margin: 0;
       }
 
       p {
@@ -143,11 +147,37 @@ export const GlobalStyles = () =>
 
       a {
         text-decoration: none;
+        color: ${theme.colors.orange};
+
+        &:visited {
+          color: ${theme.colors.orange};
+        }
+      }
+
+      button {
+        background-color: ${theme.colors.purple};
+        color: ${theme.colors.light};
+        border: 0;
+        font-size: 22px;
+        padding: 14px 20px;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .text-center { text-align: center; }
+
+      .margin-right-15 { margin-right: 15px; }
+
+      .margin-top-15 { margin-top: 15px; }
+      .margin-top-30 { margin-top: 30px; }
+      .margin-top-45 { margin-top: 45px; }
+
+      .margin-bottom-15 { margin-bottom: 15px; }
+      .margin-bottom-30 { margin-bottom: 30px; }
       .margin-bottom-45 { margin-bottom: 45px; }
-      .margin-bottom-25 { margin-bottom: 25px; }
 
       ul {
         padding-left: 0;

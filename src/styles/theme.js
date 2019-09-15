@@ -1,11 +1,17 @@
 export const theme = {
   colors: {
-    dark: '#171E16',
-    light: '#F0EDEE',
+    black: '#000',
+    white: '#fff',
+    dark: '#11151C',
+    light: '#F0F7EE',
+    purple: '#614685',
     darkOrange: '#B04420',
-    orange: '#DE6629',
-    gray: '#7C7C7C',
-    purple: '#614685'
+    coral: '#F67E7D',
+    orange: '#FFB997',
+    gray: '#CECCCC',
+    ruby: '#734B5E',
+    wenge:'#6D545D',
+    space: '#464655',
   },
 
   maxWidth: '1400px',

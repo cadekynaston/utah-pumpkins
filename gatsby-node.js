@@ -39,9 +39,6 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               description
               id
-              fluid(quality: 100, maxWidth: 800) {
-                src
-              }
             }
           }
         }
@@ -74,7 +71,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const assets = result.data.allContentfulAsset.edges
 
   const imagesByYear = assets.reduce((all, current) => {
+
     if (!current.node.file.contentType.includes('image')) return all
+    if (current.node.description === undefined || !current.node.description.includes('year')) return all
     let year = current.node.description.split(',').filter(tag => tag.includes('year'))[0].split(':')[1].trim()
 
     all[year] = all[year] ? [...all[year], current] : [current]
