@@ -1,51 +1,51 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from '@emotion/styled';
+import Img from "gatsby-image"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Header } from "../components/header"
-import { Container } from '../components/container';
-import { GalleryImage } from '../components/galleryImage';
-import { media, theme } from "../styles";
+import { ImageCollection } from '../components/imageCollection'
+import { Section, Constraint, theme, media } from '../styles'
 
 const GalleryPage = props => {
 
   const { data }  = props
   const images = data.allContentfulAsset.nodes
   const siteTitle = data.site.siteMetadata.title
-
-  let imageYears = new Set()
-  images.forEach(image => {
-    let year = image.description.split(',').filter(tag => tag.includes('year'))[0].split(':')[1].trim()
-    imageYears.add(year)
-  })
+  const heroData = data.allContentfulHero.edges[0].node
 
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="All posts" />
-      <Header>
-        <h1>Pumpkin Carving Ideas!</h1>
-        <h4>If you need a little pumpkin carving inspiration you've come to the right place.</h4>
-      </Header>
-      <Container>
-        <h2>check out images by year:</h2>
-        <YearLinks>
-          {[...imageYears].map(year =>
-            <Link to={`/gallery/${year}`} key={year} >
-              <button className="margin-right-15">{year}</button>
-            </Link>)
-          }
-        </YearLinks>
+      <Section>
+      <Constraint>
+            <Columns>
+              <Column className="vertical-center">
+                <div>
+                  <h1>{heroData.title.title}</h1>
+                  {documentToReactComponents(JSON.parse(heroData.subtitle.subtitle))}
+                </div>
+              </Column>
+              <Column>
+                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.dark} />
+              </Column>
+            </Columns>
 
-        <ImageContainer>
-          {
-            images.map(image =>
-              <GalleryImage image={image} key={image.id} />
-            )
-          }
-        </ImageContainer>
-      </Container>
+      <ImageCollection images={images} />
+
+      <h4 className="text-center margin-bottom-15">Check out these popular galleries</h4>
+      <PopularGalleries>
+        <button>Disney&nbsp;›</button>
+        <button>Anime&nbsp;›</button>
+        <button>Cartoons&nbsp;›</button>
+        <button>Lord of the rings&nbsp;›</button>
+      </PopularGalleries>
+          </Constraint>
+
+
+    </Section>
     </Layout>
 
   )
@@ -65,28 +65,74 @@ export const pageQuery = graphql`
         id
         title
         description
-        fluid(quality: 100, maxWidth: 800) {
+        fluid(maxWidth: 550, quality: 90) {
           ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+    }
+    allContentfulHero(filter: {page: {eq: "gallery"}}) {
+      edges {
+        node {
+          heroImage {
+            fluid(toFormat: PNG, quality: 90, maxWidth: 700) {
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+          page
+          title {
+            title
+          }
+          subtitle {
+            subtitle
+          }
         }
       }
     }
   }
 `
 
-const ImageContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 60px 30px;
+const StyledImg = styled(Img)`
+
+`
+
+const Columns = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+`
+
+const Column = styled.div`
+  width: 55%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &.vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+  &:nth-of-type(2) {
+    width: 45%;
+  }
 
   ${media.medium} {
-    grid-template-columns: 1fr;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:nth-of-type(2) {
+      width: 100%;
+    }
   }
 `
 
-const YearLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  margin-bottom: 50px;
-
+const PopularGalleries = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
 `

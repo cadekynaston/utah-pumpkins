@@ -26,5 +26,6 @@ const StyledFooter = styled.footer`
 `
 
 const StyledConstraint = styled(Constraint)`
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `

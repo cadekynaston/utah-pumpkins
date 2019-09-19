@@ -39,7 +39,7 @@ class Index extends React.Component {
                 </div>
               </Column>
               <Column>
-                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.orange} />
+                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.dark} />
               </Column>
             </Columns>
           </Constraint>
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
       edges {
         node {
           heroImage {
-            fluid {
+            fluid(toFormat: PNG, quality: 90, maxWidth: 700) {
               tracedSVG
               aspectRatio
               src
@@ -109,6 +109,8 @@ const Column = styled.div`
 
   ${media.medium} {
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 
     &:nth-of-type(2) {
       width: 100%;

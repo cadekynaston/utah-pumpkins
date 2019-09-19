@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { theme } from '../styles'
 
 
-export const GalleryImage = ({ image, ...props }) => {
+export const GalleryImage = ({ image }) => {
 
   const tags = image.description.split(',')
   return (
@@ -22,7 +22,6 @@ export const GalleryImage = ({ image, ...props }) => {
 
 
 const ImageContainer = styled.div`
-
 `
 
 const ImageTags = styled.ul`

@@ -53,6 +53,7 @@ export const GlobalStyles = () =>
         margin-bottom: 15px;
         text-align: left;
         font-weight: 600;
+        font-family: ${theme.fonts.lacquer};
         color: ${theme.colors.gray};
 
         ${media.medium} {
@@ -122,6 +123,7 @@ export const GlobalStyles = () =>
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         position: relative;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         background-color: ${theme.colors.dark};
         color: ${theme.colors.gray};
       }
@@ -137,12 +139,6 @@ export const GlobalStyles = () =>
       p {
         font-size: 16px;
         line-height: 24px;
-
-        &.legal {
-          font-size: 10px;
-          line-height: 12px;
-          /* color: ${theme.colors.legalGray}; */
-        }
       }
 
       a {
@@ -185,16 +181,24 @@ export const GlobalStyles = () =>
         margin-bottom: 0;
       }
 
-      .text-center {
-        text-align: center;
+      .pumpkin-select {
+        width: 100%;
+        max-width: 700px;
+
+        .pumpkin-select__value-container {
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+
+        .pumpkin-select-menu {
+
+        }
+
+        .pumpkin-select__option {
+          color: ${theme.colors.dark};
+          padding: 12px;
+        }
       }
 
-      .no-margin-bottom {
-        margin-bottom: 0;
-      }
-
-      .heavy {
-        font-weight: 700;
-      }
     `}
   />

@@ -31,7 +31,7 @@ class BlogPage extends React.Component {
               <article key={node.slug}>
                 <header>
                   <h3>
-                    <Link style={{ boxShadow: `none` }} to={node.slug}>
+                    <Link style={{ boxShadow: `none` }} to={`/${node.slug}`}>
                       {title}
                     </Link>
                   </h3>
