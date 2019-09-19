@@ -1,17 +1,39 @@
-import React, { useState } from "react"
-import styled from '@emotion/styled';
-import Select from 'react-select';
+import React, { useState, useEffect, useRef } from "react"
+import styled from "@emotion/styled"
+import Select from "react-select"
 
-import { Container } from '../components/container';
-import { GalleryImage } from '../components/galleryImage';
-import { media } from '../styles'
+import { Container } from "../components/container"
+import { GalleryImage } from "../components/galleryImage"
+import { media, theme } from "../styles"
 
 export const ImageCollection = ({ images }) => {
-
   const imagesJSX = []
   let imageTags = []
 
   const [filters, updateFilters] = useState([])
+  const selectElement = useRef(null);
+
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const handleScroll = e => {
+
+    let selectPosition = selectElement.current.offsetTop
+    let scrollPosition = window.pageYOffset || document.documentElement.scrollTop
+
+    if (scrollPosition > selectPosition - 15) {
+      selectElement.current.classList.add('fixed')
+    }
+
+    if (scrollPosition < selectPosition - 15) {
+      selectElement.current.classList.remove('fixed')
+    }
+  }
 
   const checkFilters = description => {
     let included = true
@@ -25,13 +47,16 @@ export const ImageCollection = ({ images }) => {
 
   images.forEach(image => {
     // don't show hidden images or images that aren't in the filter
-    if (! image.description.includes('hidden') && (!filters.length || checkFilters(image.description))) {
+    if (
+      !image.description.includes("hidden") &&
+      (!filters.length || checkFilters(image.description))
+    ) {
       imagesJSX.push(
         <ImageContainer key={image.id}>
           <GalleryImage image={image} />
         </ImageContainer>
       )
-      image.description.split(',').forEach(tag => {
+      image.description.split(",").forEach(tag => {
         imageTags.push(tag.trim())
       })
     }
@@ -54,8 +79,7 @@ export const ImageCollection = ({ images }) => {
 
   return (
     <Container>
-      <SelectContainer>
-        <h4>Filter: </h4>
+      <SelectContainer ref={selectElement}>
         <Select
           isMulti
           name="filters"
@@ -63,12 +87,11 @@ export const ImageCollection = ({ images }) => {
           className="pumpkin-select"
           classNamePrefix="pumpkin-select"
           onChange={handleChangeFilter}
+          placeholder="Filter..."
           // menuIsOpen={true}
         />
       </SelectContainer>
-      <ImageGrid>
-        {imagesJSX}
-      </ImageGrid>
+      <ImageGrid>{imagesJSX}</ImageGrid>
     </Container>
   )
 }
@@ -92,12 +115,35 @@ const ImageContainer = styled.div`
 const SelectContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-bottom: 50px;
-  /* width: 600px; */
+  height: 50px;
+  position: relative;
 
-  h4 {
-    margin-right: 10px;
+  .pumpkin-select {
+      position: absolute;
+      top: 20px;
+      z-index: 20;
+    }
+
+  &.fixed {
+
+    .pumpkin-select {
+      position: fixed;
+      top: 20px;
+      z-index: 20;
+
+    }
+
+    &::before {
+      content: ' ';
+      height: 90px;
+      width: 100vw;
+      background-color: ${theme.colors.dark};
+      top: 0;
+      position: fixed;
+      top: 0;
+      z-index: 20;
+    }
   }
 
 `

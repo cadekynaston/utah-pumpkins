@@ -1,17 +1,19 @@
 import React from "react"
-import styled from '@emotion/styled';
+import styled from "@emotion/styled"
 import Img from "gatsby-image"
 
-import { theme } from '../styles'
-
+import { theme, media } from "../styles"
 
 export const GalleryImage = ({ image }) => {
-
-  const tags = image.description.split(',')
+  const tags = image.description.split(",")
   return (
     <ImageContainer>
-      <Img fluid={image.fluid} key={image.id} backgroundColor={theme.colors.orange} />
-      <p>{image.description}</p>
+      <Img
+        fluid={image.fluid}
+        key={image.id}
+        backgroundColor={theme.colors.orange}
+      />
+      <ImageDescription>{image.description}</ImageDescription>
       {/* <ImageTags>
         {tags.map(tag => <ImageTag key={tag}>{tag}</ImageTag>)}
       </ImageTags> */}
@@ -19,9 +21,12 @@ export const GalleryImage = ({ image }) => {
   )
 }
 
+const ImageContainer = styled.div``
 
-
-const ImageContainer = styled.div`
+const ImageDescription = styled.p`
+  ${media.small} {
+    font-size: 12px;
+  }
 `
 
 const ImageTags = styled.ul`
