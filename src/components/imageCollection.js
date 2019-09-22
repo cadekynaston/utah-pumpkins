@@ -46,6 +46,7 @@ export const ImageCollection = ({ images }) => {
   }
 
   images.forEach(image => {
+    console.log(image)
     // don't show hidden images or images that aren't in the filter
     if (
       !image.description.includes("hidden") &&

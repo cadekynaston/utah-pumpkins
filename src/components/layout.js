@@ -1,18 +1,20 @@
 import React from "react"
-import styled from '@emotion/styled';
+import styled from "@emotion/styled"
 
 import { Nav } from "./nav"
-import { GlobalStyles } from './globalStyles';
-import { Footer } from './footer';
+import { GlobalStyles } from "./globalStyles"
+import { Footer } from "./footer"
+import { BreadCrumbs } from "./breadCrumbs"
 
 class Layout extends React.Component {
-
   render() {
-    const { location, title, children } = this.props
+    const { location, children } = this.props
+    console.log(location)
     return (
       <LayoutContainer>
         <GlobalStyles />
-        <Nav />
+        <Nav path={location.pathname} />
+        <BreadCrumbs path={location.pathname} />
         <main>{children}</main>
         <Footer />
       </LayoutContainer>

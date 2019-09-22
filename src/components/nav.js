@@ -1,43 +1,40 @@
-import React from 'react'
-import styled from '@emotion/styled';
+import React from "react"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
-import { Section, Constraint, theme } from '../styles'
-import gatsbyIcon from '../images/gatsby-icon.png'
+import { Section, Constraint, theme } from "../styles"
+import gatsbyIcon from "../images/gatsby-icon.png"
 
-export const Nav = props => {
+export const Nav = ({ path }) => {
+  let currentPage = path.split('/')[1]
   return (
-    <nav>
-      <Section>
+    <StyledNav>
+      <Section bgColor={theme.colors.dark}>
         <StyledConstraint>
-          <Link
-            style={{ boxShadow: `none` }}
-            to='/'
-          >
+          <Link to="/">
             <Logo src={gatsbyIcon} />
           </Link>
           <NavItems>
-            <NavItem>
-              <Link to='/gallery'>
-                Gallery
-              </Link>
+            <NavItem className={currentPage === 'gallery' ? 'active' : ''}>
+              <Link to="/gallery">Gallery</Link>
             </NavItem>
-            <NavItem>
-              <Link to='/blog'>
-                Blog
-              </Link>
+            <NavItem className={currentPage === 'blog' ? 'active' : ''}>
+              <Link to="/blog">Blog</Link>
             </NavItem>
-            <NavItem>
-              <Link to='/contact'>
-                Contact
-              </Link>
+            <NavItem className={currentPage === 'contact' ? 'active' : ''}>
+              <Link to="/contact">Contact</Link>
             </NavItem>
           </NavItems>
         </StyledConstraint>
       </Section>
-    </nav>
+    </StyledNav>
   )
 }
+
+const StyledNav = styled.nav`
+  margin-bottom: 15px;
+  border-bottom: 1px solid ${theme.colors.space};
+`
 
 const StyledConstraint = styled(Constraint)`
   display: flex;
@@ -56,7 +53,6 @@ const NavItems = styled.ul`
   margin: 0;
   display: flex;
   list-style-type: none;
-
 `
 
 const NavItem = styled.li`
@@ -64,6 +60,15 @@ const NavItem = styled.li`
   margin-left: 20px;
 
   a {
+    color: ${theme.colors.light};
     font-size: 20px;
   }
+
+  &.active {
+    a {
+      color: ${theme.colors.orange};
+    }
+    /* border-bottom: 1px solid ${theme.colors.orange}; */
+  }
+
 `

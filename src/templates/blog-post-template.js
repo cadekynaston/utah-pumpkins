@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-class BlogPostContentfulTemplate extends React.Component {
+class BlogPostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.contentfulBlogPost
@@ -75,7 +75,7 @@ class BlogPostContentfulTemplate extends React.Component {
   }
 }
 
-export default BlogPostContentfulTemplate
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query ContentfulBlogPostBySlug($slug: String!) {

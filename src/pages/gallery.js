@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { ImageCollection } from "../components/imageCollection"
 import { Section, Constraint, theme, media } from "../styles"
+import { GalleryLinks } from "../components/galleryLinks"
 
 const GalleryPage = props => {
   const { data } = props
@@ -42,12 +43,7 @@ const GalleryPage = props => {
           <h4 className="text-center margin-bottom-15">
             Check out these popular galleries
           </h4>
-          <PopularGalleries>
-            <button>Disney&nbsp;›</button>
-            <button>Anime&nbsp;›</button>
-            <button>Cartoons&nbsp;›</button>
-            <button>Lord of the rings&nbsp;›</button>
-          </PopularGalleries>
+          <GalleryLinks />
         </Constraint>
       </Section>
     </Layout>
@@ -56,7 +52,7 @@ const GalleryPage = props => {
 
 export default GalleryPage
 export const pageQuery = graphql`
-  query MyQuery {
+  query galleryQuery {
     site {
       siteMetadata {
         title
@@ -128,10 +124,4 @@ const Column = styled.div`
       width: 100%;
     }
   }
-`
-
-const PopularGalleries = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
 `
