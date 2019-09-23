@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         id
         title
         description
-        fluid(toFormat: WEBP, maxWidth: 550, quality: 90) {
+        fluid(maxWidth: 550, quality: 100) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

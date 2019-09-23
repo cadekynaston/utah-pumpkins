@@ -3,7 +3,7 @@ import { theme } from './theme'
 
 export const Section = styled.section`
   width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
   background-color: ${props => props.bgColor ? props.bgColor : theme.colors.dark };
 `;

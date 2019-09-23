@@ -11,27 +11,26 @@ export const ImageCollection = ({ images }) => {
   let imageTags = []
 
   const [filters, updateFilters] = useState([])
-  const selectElement = useRef(null);
-
+  const selectElement = useRef(null)
 
   useEffect(() => {
-    document.addEventListener('scroll', handleScroll)
+    document.addEventListener("scroll", handleScroll)
     return () => {
-      document.removeEventListener('scroll', handleScroll)
+      document.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
   const handleScroll = e => {
-
     let selectPosition = selectElement.current.offsetTop
-    let scrollPosition = window.pageYOffset || document.documentElement.scrollTop
+    let scrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop
 
     if (scrollPosition > selectPosition - 15) {
-      selectElement.current.classList.add('fixed')
+      selectElement.current.classList.add("fixed")
     }
 
     if (scrollPosition < selectPosition - 15) {
-      selectElement.current.classList.remove('fixed')
+      selectElement.current.classList.remove("fixed")
     }
   }
 
@@ -78,7 +77,7 @@ export const ImageCollection = ({ images }) => {
   }
 
   return (
-    <Container>
+    <>
       <SelectContainer ref={selectElement}>
         <Select
           isMulti
@@ -92,17 +91,18 @@ export const ImageCollection = ({ images }) => {
         />
       </SelectContainer>
       <ImageGrid>{imagesJSX}</ImageGrid>
-    </Container>
+    </>
   )
 }
 
 const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px 20px;
+  grid-gap: 20px;
 
   ${media.medium} {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
   }
 `
 
@@ -120,22 +120,22 @@ const SelectContainer = styled.div`
   position: relative;
 
   .pumpkin-select {
-      position: absolute;
-      top: 20px;
-      z-index: 20;
-    }
+    position: absolute;
+    top: 20px;
+    z-index: 20;
+  }
 
   &.fixed {
-
     .pumpkin-select {
       position: fixed;
       top: 20px;
       z-index: 20;
-
+      padding-left: .5rem;
+      padding-right: .5rem;
     }
 
     &::before {
-      content: ' ';
+      content: " ";
       height: 90px;
       width: 100vw;
       background-color: ${theme.colors.dark};
@@ -145,5 +145,4 @@ const SelectContainer = styled.div`
       z-index: 20;
     }
   }
-
 `

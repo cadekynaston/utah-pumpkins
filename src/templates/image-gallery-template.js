@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         node {
           slug
           galleryImages {
-            fluid(toFormat: WEBP, quality: 90, maxWidth: 550) {
+            fluid(quality: 90, maxWidth: 550) {
               ...GatsbyContentfulFluid_tracedSVG
             }
             description

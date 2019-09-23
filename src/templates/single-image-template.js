@@ -23,8 +23,8 @@ const SingleImageTemplate = props => {
       <SEO title="All posts" />
       <Section>
         <Constraint>
-          <h1>{`${mainImage.title} Pumpkin`}</h1>
-          <Img fluid={mainImage.fluid} backgroundColor={theme.colors.dark} />
+          <h1>{mainImage.title}</h1>
+          <FeaturedImage fluid={mainImage.fluid} backgroundColor={theme.colors.dark} />
           {/* {relatedImages.map(image => {
             return (
               <Img
@@ -71,7 +71,9 @@ export const SingleImageTemplateQuery = graphql`
   }
 `
 
-const StyledImg = styled(Img)``
+const FeaturedImage = styled(Img)`
+  max-width: 900px;
+`
 
 const Columns = styled.div`
   display: flex;
