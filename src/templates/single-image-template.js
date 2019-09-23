@@ -13,7 +13,7 @@ const SingleImageTemplate = props => {
   const { data } = props
 
   const mainImage = data.MainImage
-  const relatedImages = data.RelatedImages.edges
+  // const relatedImages = data.RelatedImages.edges
   // const images = data.allContentfulGallery.edges[0].node.galleryImages
   // const siteTitle = data.site.siteMetadata.title
   // const heroData = data.allContentfulHero.edges[0].node
@@ -53,21 +53,21 @@ export const SingleImageTemplateQuery = graphql`
         ...GatsbyContentfulFluid_tracedSVG
       }
     }
-    RelatedImages: allContentfulAsset(
-      limit: 20
-      filter: { description: { regex: $relatedImagesRegex } }
-    ) {
-      edges {
-        node {
-          id
-          title
-          description
-          fluid(maxWidth: 300, quality: 100) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
-        }
-      }
-    }
+    # RelatedImages: allContentfulAsset(
+    #   limit: 20
+    #   filter: { description: { regex: $relatedImagesRegex } }
+    # ) {
+    #   edges {
+    #     node {
+    #       id
+    #       title
+    #       description
+    #       fluid(maxWidth: 300, quality: 100) {
+    #         ...GatsbyContentfulFluid_tracedSVG
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
@@ -102,10 +102,4 @@ const Column = styled.div`
       width: 100%;
     }
   }
-`
-
-const PopularGalleries = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
 `
