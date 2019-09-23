@@ -43,7 +43,7 @@ export default SingleImageTemplate
 export const SingleImageTemplateQuery = graphql`
   query SingleImageTemplateQuery(
     $imageID: String!
-    $relatedImagesRegex: String!
+    # $relatedImagesRegex: String!
   ) {
     MainImage: contentfulAsset(id: { eq: $imageID }) {
       id
