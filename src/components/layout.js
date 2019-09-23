@@ -9,7 +9,6 @@ import { BreadCrumbs } from "./breadCrumbs"
 class Layout extends React.Component {
   render() {
     const { location, children } = this.props
-    console.log(location)
     return (
       <LayoutContainer>
         <GlobalStyles />

@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         content
       }
       headerImage {
-        fluid {
+        fluid(maxWidth: 700) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

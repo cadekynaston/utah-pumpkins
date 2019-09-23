@@ -25,14 +25,14 @@ const SingleImageTemplate = props => {
         <Constraint>
           <h1>{`${mainImage.title} Pumpkin`}</h1>
           <Img fluid={mainImage.fluid} backgroundColor={theme.colors.dark} />
-          {relatedImages.map(image => {
+          {/* {relatedImages.map(image => {
             return (
               <Img
                 fluid={image.node.fluid}
                 backgroundColor={theme.colors.dark}
               />
             )
-          })}
+          })} */}
         </Constraint>
       </Section>
     </Layout>
@@ -49,7 +49,7 @@ export const SingleImageTemplateQuery = graphql`
       id
       title
       description
-      fluid(maxWidth: 900, quality: 100, toFormat: WEBP) {
+      fluid(maxWidth: 900, quality: 80) {
         ...GatsbyContentfulFluid_tracedSVG
       }
     }

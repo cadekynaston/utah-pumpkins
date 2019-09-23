@@ -8,7 +8,7 @@ export const BreadCrumbs = ({ path }) => {
   let pathArray = path.split("/")
   pathArray.shift()
   let url = "/"
-  const breadCrumbsJSX = [<Link to={url}>Home</Link>]
+  const breadCrumbsJSX = []
   pathArray.forEach((item, index) => {
     url += item + "/"
     // capitalize first letters
@@ -18,17 +18,19 @@ export const BreadCrumbs = ({ path }) => {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ")
 
-    breadCrumbsJSX.push(<p> › </p>)
+    breadCrumbsJSX.push(<p key={`${item}sep${index}`}> › </p>)
     if( index === pathArray.length - 1) {
-      breadCrumbsJSX.push(<p> {item}</p>)
+      breadCrumbsJSX.push(<p key={`${item}p`}> {item}</p>)
     } else {
-      breadCrumbsJSX.push(<Link to={url}>{item}</Link>)
+      breadCrumbsJSX.push(<Link key={`${item}link`} to={url}>{item}</Link>)
     }
   })
 
   return (
     <Section>
-      <StyledConstraint>{breadCrumbsJSX}</StyledConstraint>
+      <StyledConstraint>
+      <Link key="home" to={url}>Home</Link>
+      {breadCrumbsJSX}</StyledConstraint>
     </Section>
   )
 }
