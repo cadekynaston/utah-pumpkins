@@ -50,11 +50,7 @@ export const SingleImageTemplateQuery = graphql`
       title
       description
       fluid(maxWidth: 900, quality: 100, toFormat: WEBP) {
-        tracedSVG
-        aspectRatio
-        src
-        srcSet
-        sizes
+        ...GatsbyContentfulFluid_tracedSVG
       }
     }
     RelatedImages: allContentfulAsset(
@@ -67,11 +63,7 @@ export const SingleImageTemplateQuery = graphql`
           title
           description
           fluid(maxWidth: 300, quality: 100) {
-            tracedSVG
-            aspectRatio
-            src
-            srcSet
-            sizes
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
