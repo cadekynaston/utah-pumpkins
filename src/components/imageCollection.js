@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "@emotion/styled"
 import Select from "react-select"
+import { Link } from "gatsby"
 
-import { Container } from "../components/container"
 import { GalleryImage } from "../components/galleryImage"
 import { media, theme } from "../styles"
 
 export const ImageCollection = ({ images }) => {
+
   const imagesJSX = []
   let imageTags = []
 
@@ -34,31 +35,20 @@ export const ImageCollection = ({ images }) => {
     }
   }
 
-  const checkFilters = description => {
-    let included = true
-    filters.forEach(filter => {
-      if (!description.includes(filter)) {
-        included = false
-      }
-    })
-    return included
-  }
-
   images.forEach(image => {
-    // don't show hidden images or images that aren't in the filter
-    if (
-      !image.description.includes("hidden") &&
-      (!filters.length || checkFilters(image.description))
-    ) {
-      imagesJSX.push(
-        <ImageContainer key={image.id}>
-          <GalleryImage image={image} />
-        </ImageContainer>
-      )
-      image.description.split(",").forEach(tag => {
-        imageTags.push(tag.trim())
+
+    if (!filters.length || image.node.tags.some(r => filters.includes(r))) {
+      image.node.images.forEach(img => {
+        imagesJSX.push(
+          <ImageContainer key={img.id}>
+            <Link to={`/gallery/${image.node.slug}`}>
+              <GalleryImage alt={image.node.description.description} image={img} />
+            </Link>
+          </ImageContainer>
+        )
       })
     }
+    imageTags = imageTags.concat(image.node.tags)
   })
 
   imageTags = [...new Set(imageTags)]

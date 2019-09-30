@@ -13,7 +13,6 @@ class Layout extends React.Component {
       <LayoutContainer>
         <GlobalStyles />
         <Nav path={location.pathname} />
-        <BreadCrumbs path={location.pathname} />
         <main>{children}</main>
         <Footer />
       </LayoutContainer>

@@ -4,13 +4,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post-template.js`)
-  const galleryTemplate = path.resolve(
-    `./src/templates/image-gallery-template.js`
-  )
-  const SingleImageTemplate = path.resolve(
-    `./src/templates/single-image-template.js`
-  )
-  // const imageGalleryTemplate = path.resolve(`./src/templates/image-gallery-template.js`)
+  const galleryTemplate = path.resolve(`./src/templates/image-gallery-template.js`)
+  const IndividualImageTemplate = path.resolve(`./src/templates/individual-image-template.js`)
+
   const result = await graphql(
     `
       {
@@ -21,12 +17,12 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulAsset {
+        allContentfulPumpkinImage {
           edges {
             node {
-              description
               id
-              title
+              slug
+              tags
             }
           }
         }
@@ -75,27 +71,20 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create single image pages.
-  const singleImages = result.data.allContentfulAsset.edges
-  singleImages.forEach(image => {
-    if (!image.node.description.includes("hidden")) {
+  const pumpkinImages = result.data.allContentfulPumpkinImage.edges
+  pumpkinImages.forEach(item => {
 
-      const slug = image.node.title.toLowerCase().replace(/ /g, "-")
-      const descriptionArr = image.node.description.split(',').map(tag => tag.trim())
-      const relatedImagesRegex = descriptionArr.reduce((all, current, i) => {
-        if (current.includes('year:')) { return all }
-        all += `${current}|`
-        return all
-      }, '/').slice(0, -1) + "/"
+    const { id, slug, tags } = item.node
 
-      createPage({
-        path: `/pumpkins/${slug}`,
-        component: SingleImageTemplate,
-        context: {
-          imageID: image.node.id,
-          relatedImagesRegex,
-        },
-      })
-    }
+    createPage({
+      path: `/gallery/${slug}`,
+      component: IndividualImageTemplate,
+      context: {
+        pumpkinsId: id,
+        relatedImageTags: tags,
+      },
+    })
+
   })
 
   // // Create gallery pages by year.

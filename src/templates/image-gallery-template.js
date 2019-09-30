@@ -40,10 +40,10 @@ const GalleryPageTemplate = props => {
 
           <ImageCollection images={images} />
 
-          <h4 className="text-center margin-bottom-15">
+          {/* <h4 className="text-center margin-bottom-15">
             Check out these popular galleries
           </h4>
-          <GalleryLinks />
+          <GalleryLinks /> */}
         </Constraint>
       </Section>
     </Layout>

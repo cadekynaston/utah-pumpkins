@@ -2,35 +2,23 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
-import { Section, Constraint, theme } from "../styles"
+import { Section, Constraint } from "../styles"
 
-export const BreadCrumbs = ({ path }) => {
-  let pathArray = path.split("/")
-  pathArray.shift()
-  let url = "/"
-  const breadCrumbsJSX = []
-  pathArray.forEach((item, index) => {
-    url += item + "/"
-    // capitalize first letters
-    item = item
-      .toLowerCase()
-      .split(/[- ]/)
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ")
-
-    breadCrumbsJSX.push(<p key={`${item}sep${index}`}> › </p>)
-    if( index === pathArray.length - 1) {
-      breadCrumbsJSX.push(<p key={`${item}p`}> {item}</p>)
+export const BreadCrumbs = ({ data }) => {
+  const BreadCrumbsJSX = []
+  data.forEach((item, i) => {
+    let items = item.split(" -- ")
+    if (items.length > 1) {
+      BreadCrumbsJSX.push(<Link key={`link${i}`} to={items[1]}>{items[0]}</Link>)
+      BreadCrumbsJSX.push(<p key={`p${i}`}> › </p>)
     } else {
-      breadCrumbsJSX.push(<Link key={`${item}link`} to={url}>{item}</Link>)
+      BreadCrumbsJSX.push(<p key={i}> {item} </p>)
     }
   })
 
   return (
     <Section>
-      <StyledConstraint>
-      <Link key="home" to={url}>Home</Link>
-      {breadCrumbsJSX}</StyledConstraint>
+      <StyledConstraint>{BreadCrumbsJSX}</StyledConstraint>
     </Section>
   )
 }

@@ -9,16 +9,18 @@ import SEO from "../components/seo"
 import { ImageCollection } from "../components/imageCollection"
 import { Section, Constraint, theme, media } from "../styles"
 import { GalleryLinks } from "../components/galleryLinks"
+import { BreadCrumbs } from "../components/breadCrumbs"
 
 const GalleryPage = props => {
   const { data } = props
-  const images = data.allContentfulAsset.nodes
+  const images = data.allContentfulPumpkinImage.edges
   const siteTitle = data.site.siteMetadata.title
   const heroData = data.allContentfulHero.edges[0].node
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="All posts" />
+      <BreadCrumbs data={['Home -- /', 'Gallery']} />
+      <SEO title="The best pumpkin carving idea gallery" />
       <Section>
         <Constraint>
           <Columns>
@@ -40,10 +42,10 @@ const GalleryPage = props => {
 
           <ImageCollection images={images} />
 
-          <h4 className="text-center margin-bottom-15">
+          {/* <h4 className="text-center margin-bottom-15">
             Check out these popular galleries
           </h4>
-          <GalleryLinks />
+          <GalleryLinks /> */}
         </Constraint>
       </Section>
     </Layout>
@@ -58,13 +60,23 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulAsset {
-      nodes {
-        id
-        title
-        description
-        fluid(maxWidth: 550, quality: 100) {
-          ...GatsbyContentfulFluid_tracedSVG
+    allContentfulPumpkinImage {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          id
+          tags
+          slug
+          images {
+            id
+            description
+            fluid(maxWidth: 550, quality: 100) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
         }
       }
     }
