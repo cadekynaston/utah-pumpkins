@@ -1,4 +1,8 @@
 const path = require(`path`)
+const sharp = require('sharp')
+
+sharp.cache(false)
+sharp.simd(false)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions

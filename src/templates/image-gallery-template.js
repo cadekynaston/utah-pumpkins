@@ -38,7 +38,7 @@ const GalleryPageTemplate = props => {
             </Column>
           </Columns>
 
-          <ImageCollection images={images} />
+          {/* <ImageCollection images={images} /> */}
 
           {/* <h4 className="text-center margin-bottom-15">
             Check out these popular galleries
