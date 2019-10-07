@@ -60,13 +60,15 @@ const NavItem = styled.li`
   margin-left: 20px;
 
   a {
+    padding: 5px 15px;
     color: ${theme.colors.light};
     font-size: 20px;
   }
 
   &.active {
     a {
-      color: ${theme.colors.orange};
+      background-color: ${theme.colors.gray};
+      color: ${theme.colors.dark};
     }
     /* border-bottom: 1px solid ${theme.colors.orange}; */
   }

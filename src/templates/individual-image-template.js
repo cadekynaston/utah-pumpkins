@@ -22,11 +22,12 @@ const IndividualImageTemplate = props => {
 
   return (
     <Layout location={props.location} title={"hi"}>
-      <BreadCrumbs data={["Home -- /", "Gallery -- /gallery", mainImage.title]} />
+      <BreadCrumbs
+        data={["Home -- /", "Gallery -- /gallery", mainImage.title]}
+      />
       <SEO title={`${mainImage.description.description} | Utah Pumpkins`} />
       <Section>
         <Constraint>
-
           <StyledH2>{mainImage.description.description}</StyledH2>
           {mainImage.images.map(image => (
             <FeaturedImage
@@ -35,30 +36,38 @@ const IndividualImageTemplate = props => {
               backgroundColor={theme.colors.dark}
             />
           ))}
-          <h3>Related Images</h3>
-          <RelatedImagesContainer>
-            {relatedImages.map((image, i) => {
-              if (!showMoreRelatedImages && i > 4) {
-                return null
-              }
-              return (
-                <Link
-                  key={`${image.node.id}${i}`}
-                  to={`/gallery/${image.node.slug}`}
+          {relatedImages.length > 0 && (
+            <>
+              <h3>Related Images</h3>
+              <RelatedImagesContainer>
+                {relatedImages.map((image, i) => {
+                  if (!showMoreRelatedImages && i > 4) {
+                    return null
+                  }
+                  return (
+                    <Link
+                      key={`${image.node.id}${i}`}
+                      to={`/gallery/${image.node.slug}`}
+                    >
+                      <RelatedImage
+                        fluid={image.node.images[0].fluid}
+                        backgroundColor={theme.colors.dark}
+                      />
+                    </Link>
+                  )
+                })}
+              </RelatedImagesContainer>
+              {relatedImages.length > 5 && (
+                <ViewMoreButton
+                  onClick={() =>
+                    updateShowMoreRelatedImages(prevState => !prevState)
+                  }
                 >
-                  <RelatedImage
-                    fluid={image.node.images[0].fluid}
-                    backgroundColor={theme.colors.dark}
-                  />
-                </Link>
-              )
-            })}
-          </RelatedImagesContainer>
-          <ViewMoreButton
-            onClick={() => updateShowMoreRelatedImages(prevState => !prevState)}
-          >
-            {showMoreRelatedImages ? "View Less" : "View More"}
-          </ViewMoreButton>
+                  {showMoreRelatedImages ? "View Less" : "View More"}
+                </ViewMoreButton>
+              )}
+            </>
+          )}
         </Constraint>
       </Section>
     </Layout>

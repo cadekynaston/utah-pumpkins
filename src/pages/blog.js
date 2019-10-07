@@ -2,11 +2,12 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
-import { Section, Constraint } from "../styles"
+import { Section, Constraint, theme } from "../styles"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Header } from "../components/header"
+import { BreadCrumbs } from "../components/breadCrumbs"
 
 class BlogPage extends React.Component {
   render() {
@@ -16,29 +17,31 @@ class BlogPage extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
+        <BreadCrumbs data={["Home -- /", "Blog"]} />
         <Section>
           <Constraint>
-            <Header>
-              <h1>BLOG PAGE</h1>
-            </Header>
+
             <SEO title="All posts" />
             {/* <Bio /> */}
             {posts.map(({ node }) => {
               const title = node.title || node.slug
               return (
-                <article key={node.slug}>
+                <Article key={node.slug}>
                   <header>
                     <h3>
-                      <Link style={{ boxShadow: `none` }} to={`/${node.slug}`}>
+                      <Link
+                        style={{ boxShadow: `none` }}
+                        to={`/blog/${node.slug}`}
+                      >
                         {title}
                       </Link>
                     </h3>
-                    <small>{node.date}</small>
+                    {/* <small>{node.date}</small> */}
                   </header>
                   <section>
                     <p>{node.subtitle}</p>
                   </section>
-                </article>
+                </Article>
               )
             })}
           </Constraint>
@@ -63,9 +66,17 @@ export const pageQuery = graphql`
           slug
           subtitle
           author
-          date
+          date(formatString: "MMMM DD, YYYY")
         }
       }
     }
   }
+`
+
+const Article = styled.article`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${theme.colors.gray};
+  padding: 20px 30px;
+  border-radius: 5px;
 `
