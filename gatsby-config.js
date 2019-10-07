@@ -11,7 +11,7 @@ module.exports = {
     description: `The best pumpkin carving inspiration.`,
     siteUrl: `https://www.utahpumpkins.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `cadekynaston`,
     },
   },
   plugins: [
@@ -50,8 +50,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Utah Pumpkins`,
+        short_name: `Utah Pumpkins`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

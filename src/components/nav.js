@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
-import { Section, Constraint, theme } from "../styles"
+import { Section, Constraint, theme, media } from "../styles"
 import gatsbyIcon from "../images/gatsby-icon.png"
 
 export const Nav = ({ path }) => {
@@ -59,16 +59,28 @@ const NavItem = styled.li`
   margin-bottom: 0;
   margin-left: 20px;
 
+  ${media.small} {
+    margin-left: 0;
+  }
+
   a {
     padding: 5px 15px;
     color: ${theme.colors.light};
     font-size: 20px;
+
+    &:visited {
+      color: ${theme.colors.light};
+    }
   }
 
   &.active {
     a {
       background-color: ${theme.colors.gray};
       color: ${theme.colors.dark};
+
+      &:visited {
+        color: ${theme.colors.dark};
+      }
     }
     /* border-bottom: 1px solid ${theme.colors.orange}; */
   }
