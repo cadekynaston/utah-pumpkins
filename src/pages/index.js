@@ -39,7 +39,7 @@ class Index extends React.Component {
                 </div>
               </Column>
               <Column>
-                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.dark} />
+                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.dark} alt="Utah Pumpkins" />
               </Column>
             </Columns>
           </Constraint>

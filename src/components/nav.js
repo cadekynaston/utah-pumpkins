@@ -12,7 +12,7 @@ export const Nav = ({ path }) => {
       <Section bgColor={theme.colors.dark}>
         <StyledConstraint>
           <Link to="/">
-            <Logo src={gatsbyIcon} />
+            <Logo src={gatsbyIcon} alt="Utah Pumpkins Logo" />
           </Link>
           <NavItems>
             <NavItem className={currentPage === 'gallery' ? 'active' : ''}>
@@ -40,8 +40,8 @@ const StyledConstraint = styled(Constraint)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 `
 
 const Logo = styled.img`

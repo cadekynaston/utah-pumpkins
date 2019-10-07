@@ -8,7 +8,7 @@ export const Section = styled.section`
   background-color: ${props => props.bgColor ? props.bgColor : theme.colors.dark };
 
   ${media.medium} {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: .8rem;
+    padding-right: .8rem;
   }
 `;

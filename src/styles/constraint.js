@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { theme } from './theme';
+import { theme, media } from './';
 
 export const Constraint = styled.div`
   padding-top: 90px;
@@ -7,4 +7,14 @@ export const Constraint = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: ${theme.maxWidth};
+
+  ${media.medium} {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  ${media.small} {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 `;

@@ -24,6 +24,6 @@ export const Footer = () => {
 const StyledFooter = styled.footer``
 
 const StyledConstraint = styled(Constraint)`
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
 `

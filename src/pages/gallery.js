@@ -36,6 +36,7 @@ const GalleryPage = props => {
               <StyledImg
                 fluid={heroData.heroImage.fluid}
                 backgroundColor={theme.colors.dark}
+                alt="Utah Pumpkins Gallery - Dragon"
               />
             </Column>
           </Columns>

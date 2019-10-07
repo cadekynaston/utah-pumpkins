@@ -27,8 +27,8 @@ const StyledConstraint = styled(Constraint)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 0;
-  padding-bottom: 20px;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
 
   > * {
     margin-right: 5px;

@@ -120,8 +120,8 @@ const SelectContainer = styled.div`
       position: fixed;
       top: 20px;
       z-index: 20;
-      padding-left: .5rem;
-      padding-right: .5rem;
+      padding-left: .8rem;
+      padding-right: .8rem;
     }
 
     &::before {
