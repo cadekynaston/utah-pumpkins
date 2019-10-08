@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
 import { Section, Constraint, theme, media } from "../styles"
-import gatsbyIcon from "../images/gatsby-icon.png"
+import { MainLogo } from './logos/mainLogo'
 
 export const Nav = ({ path }) => {
   let currentPage = path.split('/')[1]
@@ -12,7 +12,7 @@ export const Nav = ({ path }) => {
       <Section bgColor={theme.colors.dark}>
         <StyledConstraint>
           <Link to="/">
-            <Logo src={gatsbyIcon} alt="Utah Pumpkins Logo" />
+            <MainLogo />
           </Link>
           <NavItems>
             <NavItem className={currentPage === 'gallery' ? 'active' : ''}>
@@ -40,19 +40,22 @@ const StyledConstraint = styled(Constraint)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
-`
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 
-const Logo = styled.img`
-  height: 40px;
-  width: 40px;
+  ${media.medium} {
+    flex-direction: column;
+  }
 `
 
 const NavItems = styled.ul`
   margin: 0;
   display: flex;
   list-style-type: none;
+
+  ${media.medium} {
+    margin-bottom: 15px;
+  }
 `
 
 const NavItem = styled.li`
