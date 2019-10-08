@@ -47,7 +47,7 @@ module.exports = {
         short_name: `Utah Pumpkins`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#11151C`,
         display: `minimal-ui`,
         icon: `src/images/pumpkin-icon.png`,
       },
