@@ -48,8 +48,8 @@ export const GlobalStyles = () => (
       }
 
       h2 {
-        font-size: 52px;
-        line-height: 54px;
+        font-size: 48px;
+        line-height: 50px;
         margin-bottom: 15px;
         text-align: left;
         font-weight: 600;
@@ -57,14 +57,14 @@ export const GlobalStyles = () => (
         color: ${theme.colors.gray};
 
         ${media.medium} {
-          font-size: 42px;
-          line-height: 44px;
+          font-size: 40px;
+          line-height: 42px;
           text-align: left;
         }
 
         ${media.small} {
-          font-size: 32px;
-          line-height: 34px;
+          font-size: 30px;
+          line-height: 32px;
         }
       }
 
