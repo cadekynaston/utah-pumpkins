@@ -20,9 +20,10 @@ class BlogPage extends React.Component {
         <BreadCrumbs data={["Home -- /", "Blog"]} />
         <Section>
           <Constraint>
-
-            <SEO title="All posts" />
-            {/* <Bio /> */}
+            <SEO
+              title="Blog | Utah Pumpkins"
+              description="Utah Pumpkins blog featured helpful pumpkin carving tips and tricks as well as halloween inspiration."
+            />
             {posts.map(({ node }) => {
               const title = node.title || node.slug
               return (

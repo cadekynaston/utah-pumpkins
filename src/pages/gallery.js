@@ -20,7 +20,9 @@ const GalleryPage = props => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <BreadCrumbs data={['Home -- /', 'Gallery']} />
-      <SEO title="The best pumpkin carving idea gallery" />
+      <SEO
+        title="Pumpkin Carving Ideas and Gallery | Utah Pumpkins"
+        description="Utah Pumpkins Gallery is your go-to pumpkin carving inspiration gallery." />
       <Section>
         <Constraint>
           <Columns>

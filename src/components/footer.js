@@ -29,6 +29,7 @@ export const Footer = () => {
 const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
 
   ${media.medium} {
     flex-direction: column;

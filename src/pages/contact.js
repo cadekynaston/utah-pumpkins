@@ -1,14 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import styled from '@emotion/styled';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styled from "@emotion/styled"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import { Section, Constraint, theme, media } from '../styles'
+import { Section, Constraint, theme, media } from "../styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
-import { BreadCrumbs } from '../components/breadCrumbs';
-
+import { BreadCrumbs } from "../components/breadCrumbs"
 
 class Index extends React.Component {
   render() {
@@ -18,7 +17,10 @@ class Index extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="Contact us - Utah Pumpkins" />
+        <SEO
+          title="Contact | Utah Pumpkins"
+          description="Send us an email if you want to learn more about Utah Pumpkins."
+        />
         <BreadCrumbs data={["Home -- /", "Contact"]} />
         <Section>
           <Constraint>
@@ -26,11 +28,19 @@ class Index extends React.Component {
               <Column className="vertical-center">
                 <div>
                   <h1>Contact Us</h1>
-                  <h4>For any inquiries send us a message at: <a href="mailto:utahpumpkins@gmail.com">utahpumpkins@gmail.com</a></h4>
+                  <h4>
+                    For any inquiries send us a message at:{" "}
+                    <a href="mailto:utahpumpkins@gmail.com">
+                      utahpumpkins@gmail.com
+                    </a>
+                  </h4>
                 </div>
               </Column>
               <Column>
-                <StyledImg fluid={heroData.heroImage.fluid} backgroundColor={theme.colors.dark} />
+                <StyledImg
+                  fluid={heroData.heroImage.fluid}
+                  backgroundColor={theme.colors.dark}
+                />
               </Column>
             </Columns>
           </Constraint>
@@ -48,7 +58,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulHero(filter: {page: {eq: "index"}}) {
+    allContentfulHero(filter: { page: { eq: "index" } }) {
       edges {
         node {
           heroImage {
@@ -73,15 +83,12 @@ export const pageQuery = graphql`
   }
 `
 
-const StyledImg = styled(Img)`
-
-`
+const StyledImg = styled(Img)``
 
 const Columns = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 `
 
 const Column = styled.div`
@@ -108,4 +115,3 @@ const Column = styled.div`
     }
   }
 `
-

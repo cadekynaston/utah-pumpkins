@@ -25,7 +25,9 @@ const IndividualImageTemplate = props => {
       <BreadCrumbs
         data={["Home -- /", "Gallery -- /gallery", mainImage.title]}
       />
-      <SEO title={`${mainImage.description.description} | Utah Pumpkins`} />
+      <SEO
+        title={`${mainImage.description.description} | Utah Pumpkins`}
+        description={`${mainImage.description.description}. Utah Pumpkins is your go-to place for pumpkin carving ideas and inspiration.`} />
       <Section>
         <Constraint>
           <StyledH2>{mainImage.description.description}</StyledH2>
