@@ -26,10 +26,10 @@ class Index extends React.Component {
           <Constraint>
             <Columns>
               <Column className="vertical-center">
-                <div>
+                <div className="margin-bottom-30">
                   <h1>Contact Us</h1>
                   <h4>
-                    For any inquiries send us a message at:{" "}
+                    For any questions, comments, or concerns send us a message at:{" "}
                     <a href="mailto:utahpumpkins@gmail.com">
                       utahpumpkins@gmail.com
                     </a>

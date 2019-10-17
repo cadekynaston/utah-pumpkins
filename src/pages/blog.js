@@ -37,10 +37,10 @@ class BlogPage extends React.Component {
                         {title}
                       </Link>
                     </h3>
-                    {/* <small>{node.date}</small> */}
                   </header>
                   <section>
                     <p>{node.subtitle}</p>
+                    <small>{node.date}</small>
                   </section>
                 </Article>
               )

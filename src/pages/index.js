@@ -18,7 +18,7 @@ class Index extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="Utah Pumpkins | Pumpkin Carving Ideas and Inspiration"
-          description="Utah Pumpkins is a place to show off awesome pumpkin carving ideas and get inspiration for you own halloween fun." />
+          description="Utah Pumpkins is a place to show off awesome pumpkin carving ideas and get inspiration for your own halloween fun." />
         <Section>
           <Constraint>
             <Columns>

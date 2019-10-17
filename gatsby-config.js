@@ -15,6 +15,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
