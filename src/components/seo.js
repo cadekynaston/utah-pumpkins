@@ -22,6 +22,7 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  let ogImage = ogImagePath || siteSnapshot
 
   return (
     <Helmet htmlAttributes={{ lang }}>
@@ -40,7 +41,7 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
       <meta property="og:site_name" content={title} />
       <meta
         property="og:image"
-        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+        content={ogImage}
       />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="600" />
@@ -49,7 +50,7 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
       <meta itemProp="description" content={metaDescription} />
       <meta
         itemProp="image"
-        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+        content={ogImage}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={site.siteMetadata.siteUrl} />
@@ -59,7 +60,7 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
       <meta name="twitter:description" content={metaDescription} />
       <meta
         name="twitter:image"
-        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+        content={ogImage}
       />
       <meta name="twitter:image:alt" content={title} />
     </Helmet>

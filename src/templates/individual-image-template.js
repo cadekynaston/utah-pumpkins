@@ -20,6 +20,8 @@ const IndividualImageTemplate = props => {
   // const siteTitle = data.site.siteMetadata.title
   // const heroData = data.allContentfulHero.edges[0].node
 
+
+
   return (
     <Layout location={props.location} title={"hi"}>
       <BreadCrumbs
@@ -27,7 +29,8 @@ const IndividualImageTemplate = props => {
       />
       <SEO
         title={`${mainImage.description.description} | Utah Pumpkins`}
-        description={`${mainImage.description.description}. Utah Pumpkins is your go-to place for pumpkin carving ideas and inspiration.`} />
+        description={`${mainImage.description.description}. Utah Pumpkins is your go-to place for pumpkin carving ideas and inspiration.`}
+        ogImagePath={`${mainImage.images[0].fluid.src}`} />
       <Section>
         <Constraint>
           <StyledH2>{mainImage.description.description}</StyledH2>
@@ -89,6 +92,7 @@ export const IndividualImageTemplateQuery = graphql`
         description
       }
       images {
+        id
         fluid(maxWidth: 900, quality: 100) {
           ...GatsbyContentfulFluid_tracedSVG
         }
