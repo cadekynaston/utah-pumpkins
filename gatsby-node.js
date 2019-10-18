@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
-      path: `/blog/${post.node.slug}`,
+      path: `/blog/${post.node.slug}/`,
       component: blogPostTemplate,
       context: {
         slug: post.node.slug,
@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const galleries = result.data.allContentfulGallery.edges
   galleries.forEach(gallery => {
     createPage({
-      path: `/gallery/${gallery.node.slug}`,
+      path: `/gallery/${gallery.node.slug}/`,
       component: galleryTemplate,
       context: {
         slug: gallery.node.slug,
@@ -81,7 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { id, slug, tags } = item.node
 
     createPage({
-      path: `/gallery/${slug}`,
+      path: `/gallery/${slug}/`,
       component: IndividualImageTemplate,
       context: {
         pumpkinsId: id,
