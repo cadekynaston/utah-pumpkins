@@ -16,7 +16,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
