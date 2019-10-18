@@ -1,16 +1,10 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import siteSnapshot from "../images/site-snapshot.png"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, ogImagePath = null }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +13,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -27,51 +22,47 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: "google-site-verification",
-          content: "QIjYtjBa0zi9jzr2UE-oduw8dA2uExOaK3NnicN9_Xk",
-        },
-      ].concat(meta)}
-    />
+    <Helmet htmlAttributes={{ lang }}>
+      <title itemProp="name" lang="en">
+        {title}
+      </title>
+      <meta name="description" content={metaDescription} />
+      <meta
+        property="google-site-verification"
+        content="QIjYtjBa0zi9jzr2UE-oduw8dA2uExOaK3NnicN9_Xk"
+      />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={site.siteMetadata.siteUrl} />
+      <meta property="og:site_name" content={title} />
+      <meta
+        property="og:image"
+        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+      />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="600" />
+      <meta property="og:image:type" content="image/png" />
+      <meta itemProp="name" content={title} />
+      <meta itemProp="description" content={metaDescription} />
+      <meta
+        itemProp="image"
+        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+      />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={site.siteMetadata.siteUrl} />
+      <meta name="twitter:site" content={site.siteMetadata.author} />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta
+        name="twitter:image"
+        content={`${site.siteMetadata.siteUrl}${siteSnapshot}`}
+      />
+      <meta name="twitter:image:alt" content={title} />
+    </Helmet>
   )
 }
 
