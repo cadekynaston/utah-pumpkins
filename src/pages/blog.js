@@ -32,7 +32,7 @@ class BlogPage extends React.Component {
                     <h3>
                       <Link
                         style={{ boxShadow: `none` }}
-                        to={`/blog/${node.slug}`}
+                        to={`/blog/${node.slug}/`}
                       >
                         {title}
                       </Link>

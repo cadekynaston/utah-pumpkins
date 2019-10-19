@@ -41,7 +41,7 @@ export const ImageCollection = ({ images }) => {
       image.node.images.forEach(img => {
         imagesJSX.push(
           <ImageContainer key={img.id}>
-            <Link to={`/gallery/${image.node.slug}`}>
+            <Link to={`/gallery/${image.node.slug}/`}>
               <GalleryImage alt={image.node.description.description} image={img} />
             </Link>
           </ImageContainer>

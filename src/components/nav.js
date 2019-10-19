@@ -16,13 +16,13 @@ export const Nav = ({ path }) => {
           </Link>
           <NavItems>
             <NavItem className={currentPage === 'gallery' ? 'active' : ''}>
-              <Link to="/gallery">Gallery</Link>
+              <Link to="/gallery/">Gallery</Link>
             </NavItem>
             <NavItem className={currentPage === 'blog' ? 'active' : ''}>
-              <Link to="/blog">Blog</Link>
+              <Link to="/blog/">Blog</Link>
             </NavItem>
             <NavItem className={currentPage === 'contact' ? 'active' : ''}>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact/">Contact</Link>
             </NavItem>
           </NavItems>
         </StyledConstraint>

@@ -6,9 +6,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: `Best pumpkin carving ideas`,
+    title: `Utah Pumpkins | Pumpkin Carving Ideas and Inspiration`,
     author: `Cade Kynaston`,
-    description: `The best pumpkin carving inspiration.`,
+    description: `Utah Pumpkins is a place to show off awesome pumpkin carving ideas and get inspiration for your own halloween fun.`,
     siteUrl: `https://www.utahpumpkins.com`,
     social: {
       twitter: `cadekynaston`,

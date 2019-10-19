@@ -19,7 +19,7 @@ export const GalleryLinks = () => {
   return (
     <PopularGalleries>
       {galleries.map((gallery, i) => (
-        <Link key={i} to={`/gallery/${gallery.node.slug}`}>
+        <Link key={i} to={`/gallery/${gallery.node.slug}/`}>
           <button>{gallery.node.title}&nbsp;›</button>
         </Link>
       ))}

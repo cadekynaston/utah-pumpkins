@@ -52,7 +52,7 @@ const IndividualImageTemplate = props => {
                   return (
                     <Link
                       key={`${image.node.id}${i}`}
-                      to={`/gallery/${image.node.slug}`}
+                      to={`/gallery/${image.node.slug}/`}
                     >
                       <RelatedImage
                         fluid={image.node.images[0].fluid}

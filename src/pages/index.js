@@ -27,12 +27,12 @@ class Index extends React.Component {
                   <h1>{heroData.title.title}</h1>
                   {documentToReactComponents(JSON.parse(heroData.subtitle.subtitle))}
                   <FlexRow className="margin-top-30 margin-bottom-30">
-                    <Link to="/blog" >
+                    <Link to="/blog/" >
                       <button className="margin-right-15 margin-bottom-15">
                         View the Blog&nbsp;›
                       </button>
                     </Link>
-                    <Link to="/gallery" >
+                    <Link to="/gallery/" >
                       <button>
                         Check out the Gallery&nbsp;›
                       </button>
