@@ -76,7 +76,7 @@ export const pageQuery = graphql`
           images {
             id
             description
-            fluid(maxWidth: 550, quality: 100) {
+            fluid(maxWidth: 500, quality: 90) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

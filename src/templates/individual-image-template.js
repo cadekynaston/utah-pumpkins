@@ -120,6 +120,10 @@ export const IndividualImageTemplateQuery = graphql`
 const StyledH2 = styled.h2`
   margin-bottom: 50px;
   text-align: center;
+
+  ${media.small} {
+    text-align: left;
+  }
 `
 
 const FeaturedImage = styled(Img)`
