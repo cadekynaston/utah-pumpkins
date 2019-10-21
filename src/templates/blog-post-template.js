@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.title} description={post.subtitle} />
-        <BreadCrumbs data={["Home -- /", "Blog -- /blog", post.title]} />
+        <BreadCrumbs data={["Home -- /", "Blog -- /blog/", post.title]} />
 
         <Section>
           <BlogConstraint>

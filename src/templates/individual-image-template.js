@@ -25,7 +25,7 @@ const IndividualImageTemplate = props => {
   return (
     <Layout location={props.location} title={"hi"}>
       <BreadCrumbs
-        data={["Home -- /", "Gallery -- /gallery", mainImage.title]}
+        data={["Home -- /", "Gallery -- /gallery/", mainImage.title]}
       />
       <SEO
         title={`${mainImage.description.description} | Utah Pumpkins`}
