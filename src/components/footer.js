@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
-import Img from "gatsby-image"
 
-import { theme, media, Section, Constraint } from "../styles"
+import { media, Section, Constraint } from "../styles"
 
 export const Footer = () => {
   return (

@@ -6,7 +6,6 @@ import { Section, Constraint, theme } from "../styles"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Header } from "../components/header"
 import { BreadCrumbs } from "../components/breadCrumbs"
 
 class BlogPage extends React.Component {

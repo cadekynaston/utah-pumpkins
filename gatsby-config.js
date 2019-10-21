@@ -60,6 +60,7 @@ module.exports = {
       options: {
         spaceId: `omp67figpd18`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
       }
     },
   ],

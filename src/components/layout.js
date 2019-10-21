@@ -4,7 +4,6 @@ import styled from "@emotion/styled"
 import { Nav } from "./nav"
 import { GlobalStyles } from "./globalStyles"
 import { Footer } from "./footer"
-import { BreadCrumbs } from "./breadCrumbs"
 
 class Layout extends React.Component {
   render() {

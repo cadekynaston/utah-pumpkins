@@ -1,7 +1,6 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import { Section, Constraint, theme, media } from "../styles"
 import Layout from "../components/layout"

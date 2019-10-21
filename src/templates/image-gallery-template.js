@@ -6,13 +6,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { ImageCollection } from "../components/imageCollection"
-import { GalleryLinks } from "../components/galleryLinks"
 import { Section, Constraint, theme, media } from "../styles"
 
 const GalleryPageTemplate = props => {
   const { data } = props
-  const images = data.allContentfulGallery.edges[0].node.galleryImages
   const siteTitle = data.site.siteMetadata.title
   const heroData = data.allContentfulHero.edges[0].node
 
@@ -134,10 +131,4 @@ const Column = styled.div`
       width: 100%;
     }
   }
-`
-
-const PopularGalleries = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
 `

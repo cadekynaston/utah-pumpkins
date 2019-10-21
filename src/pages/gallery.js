@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { ImageCollection } from "../components/imageCollection"
 import { Section, Constraint, theme, media } from "../styles"
-import { GalleryLinks } from "../components/galleryLinks"
+// import { GalleryLinks } from "../components/galleryLinks"
 import { BreadCrumbs } from "../components/breadCrumbs"
 
 const GalleryPage = props => {
