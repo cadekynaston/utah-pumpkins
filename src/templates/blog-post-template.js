@@ -88,7 +88,7 @@ export const pageQuery = graphql`
       }
       headerImage {
         fluid(maxWidth: 700, quality: 90) {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

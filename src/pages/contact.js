@@ -62,11 +62,7 @@ export const pageQuery = graphql`
         node {
           heroImage {
             fluid(toFormat: PNG, quality: 90, maxWidth: 700) {
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              sizes
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           page

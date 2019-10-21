@@ -94,7 +94,7 @@ export const IndividualImageTemplateQuery = graphql`
       images {
         id
         fluid(maxWidth: 900, quality: 100) {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
@@ -108,7 +108,7 @@ export const IndividualImageTemplateQuery = graphql`
           title
           images {
             fluid(maxWidth: 250, quality: 90) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

@@ -61,7 +61,7 @@ export const pageQuery = graphql`
           slug
           galleryImages {
             fluid(quality: 90, maxWidth: 550) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_withWebp
             }
             description
             id
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
           title
           featuredImage {
             fluid(toFormat: PNG, quality: 90, maxWidth: 700) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
@@ -80,11 +80,7 @@ export const pageQuery = graphql`
         node {
           heroImage {
             fluid(toFormat: PNG, quality: 90, maxWidth: 700) {
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              sizes
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           page
