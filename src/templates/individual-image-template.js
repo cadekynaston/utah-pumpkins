@@ -16,14 +16,8 @@ const IndividualImageTemplate = props => {
   const mainImage = data.MainImages
   const relatedImages = data.RelatedImages.edges
 
-  // const images = data.allContentfulGallery.edges[0].node.galleryImages
-  // const siteTitle = data.site.siteMetadata.title
-  // const heroData = data.allContentfulHero.edges[0].node
-
-
-
   return (
-    <Layout location={props.location} title={"hi"}>
+    <Layout location={props.location}>
       <BreadCrumbs
         data={["Home -- /", "Gallery -- /gallery/", mainImage.title]}
       />
