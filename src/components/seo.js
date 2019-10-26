@@ -37,6 +37,8 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
       <meta property="og:site_name" content={title} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:height" content="600" />
+      <meta property="og:image:width" content="600" />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={metaDescription} />
       <meta itemProp="image" content={ogImage} />
