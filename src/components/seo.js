@@ -22,7 +22,7 @@ function SEO({ description, lang, meta, title, ogImagePath = null }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  let ogImage = ogImagePath || siteSnapshot
+  let ogImage = ogImagePath || `${site.siteMetadata.siteUrl}${siteSnapshot}`
 
   return (
     <Helmet htmlAttributes={{ lang }}>
