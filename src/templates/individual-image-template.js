@@ -24,7 +24,7 @@ const IndividualImageTemplate = props => {
       <SEO
         title={`${mainImage.description.description} | Utah Pumpkins`}
         description={`${mainImage.description.description}. Utah Pumpkins is your go-to place for pumpkin carving ideas and inspiration.`}
-        ogImagePath={`${mainImage.images[0].fluid.src}`} />
+        ogImagePath={`https:${mainImage.images[0].fluid.src}`} />
       <Section>
         <Constraint>
           <StyledH2>{mainImage.description.description}</StyledH2>
