@@ -150,12 +150,13 @@ export const GlobalStyles = () => (
       }
 
       button {
-        background-color: ${theme.colors.purple};
+        border-radius: 20px;
+        background-color: ${theme.colors.orange};
         color: ${theme.colors.light};
+        padding: 8px 30px;
+        text-align: center;
+        font-size: 20px;
         border: 0;
-        font-size: 22px;
-        padding: 14px 20px;
-        border-radius: 5px;
 
         &:hover {
           cursor: pointer;

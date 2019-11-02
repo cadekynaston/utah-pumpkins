@@ -6,7 +6,6 @@ import { Section, Constraint, theme, media } from "../styles"
 import { MainLogo } from './logos/mainLogo'
 
 export const Nav = ({ path }) => {
-  let currentPage = path.split('/')[1]
   return (
     <StyledNav>
       <Section bgColor={theme.colors.dark}>
@@ -14,17 +13,23 @@ export const Nav = ({ path }) => {
           <Link to="/">
             <MainLogo />
           </Link>
-          <NavItems>
-            <NavItem className={currentPage === 'gallery' ? 'active' : ''}>
-              <Link to="/gallery/">Gallery</Link>
-            </NavItem>
-            <NavItem className={currentPage === 'blog' ? 'active' : ''}>
-              <Link to="/blog/">Blog</Link>
-            </NavItem>
-            <NavItem className={currentPage === 'contact' ? 'active' : ''}>
-              <Link to="/contact/">Contact</Link>
-            </NavItem>
-          </NavItems>
+          <FlexContainer>
+            <NavItems>
+              <NavItem>
+                <Link to="/blog/">Blog</Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/contact/">Contact</Link>
+              </NavItem>
+            </NavItems>
+            <Link to="/gallery/">
+              <GalleryButton>
+                Gallery
+              </GalleryButton>
+            </Link>
+          </FlexContainer>
+
+
         </StyledConstraint>
       </Section>
     </StyledNav>
@@ -32,8 +37,7 @@ export const Nav = ({ path }) => {
 }
 
 const StyledNav = styled.nav`
-  margin-bottom: 15px;
-  border-bottom: 1px solid ${theme.colors.space};
+  margin-bottom: 10px;
 `
 
 const StyledConstraint = styled(Constraint)`
@@ -85,7 +89,15 @@ const NavItem = styled.li`
         color: ${theme.colors.dark};
       }
     }
-    /* border-bottom: 1px solid ${theme.colors.orange}; */
   }
 
+`
+
+const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const GalleryButton = styled.button`
+  margin-left: 20px;
 `
