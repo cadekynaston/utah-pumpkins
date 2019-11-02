@@ -28,8 +28,6 @@ export const Nav = ({ path }) => {
               </GalleryButton>
             </Link>
           </FlexContainer>
-
-
         </StyledConstraint>
       </Section>
     </StyledNav>
@@ -57,14 +55,10 @@ const NavItems = styled.ul`
   display: flex;
   list-style-type: none;
 
-  ${media.medium} {
-    margin-bottom: 15px;
-  }
 `
 
 const NavItem = styled.li`
   margin-bottom: 0;
-  margin-left: 20px;
 
   ${media.small} {
     margin-left: 0;
@@ -99,5 +93,5 @@ const FlexContainer = styled.div`
 `
 
 const GalleryButton = styled.button`
-  margin-left: 20px;
+  margin-left: 15px;
 `

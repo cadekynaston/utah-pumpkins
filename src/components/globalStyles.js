@@ -219,6 +219,8 @@ export const GlobalStyles = () => (
         enable-background:new 0 0 1224 288;
         height: 90px;
 
+        max-width: 100%;
+
         .st0 {
           display: none;
         }
